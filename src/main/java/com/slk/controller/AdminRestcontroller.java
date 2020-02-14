@@ -42,7 +42,12 @@ public class AdminRestcontroller {
 		adminDaoimpl.addJob(admin);
 		return new ResponseEntity(admin, HttpStatus.OK);
 	}
-	
+	 
+	@GetMapping("/All_jobs")
+	public List getalljob() throws Exception {
+		System.out.println("the functiuon inside controller");
+		return adminDaoimpl.getallJob();
+	}
 }
 	
 	

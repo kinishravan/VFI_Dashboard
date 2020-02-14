@@ -13,6 +13,7 @@ import com.slk.model1.Admin;
 @Repository
 public interface AdminDao {
 	public void addJob(Admin emp);
+	List<Admin> getallJob() throws Exception;
 
 
 }

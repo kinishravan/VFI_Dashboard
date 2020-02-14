@@ -93,6 +93,38 @@ import com.slk.util.DButil;
 
      	}
 	
+         
+
+     	@Override
+     	public List<Admin> getallJob() throws Exception {
+
+     		List<Admin> adm = new ArrayList<Admin>();
+
+     		try {
+     			//String statement = "select distinct customer.cust_id,name,dob,contact,address,aadhar_card,pan_card,branch_id,customer_Acc_no,balance,account_id from customer,customer_account where customer.cust_id=customer_account.cust_id;";
+     				String query3="select idnewjob,title,experience,skills from newjob;";
+         			Statement stmt = con.prepareStatement(query3);
+        			ResultSet rs = stmt.executeQuery(query3);
+     			while (rs.next()) {
+
+     				Admin admin = new Admin();
+     				admin.setIdnewjob(rs.getInt(1));
+     				admin.setTitle(rs.getString(2));
+     				admin.setExperience(rs.getString(3));
+     				admin.setSkills(rs.getString(4));
+     				
+     				System.out.println(rs.getInt(1) + " " + rs.getString(2));
+
+     				adm.add(admin);
+     			}
+     		}
+
+     		catch (Exception e) {
+     			e.printStackTrace();
+     		}
+     		return adm;
+     	}
+
 		
 
 	}
